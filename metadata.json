@@ -1,0 +1,6 @@
+{
+  "name": "ADN Conseils - Services d'Administration",
+  "description": "Portail web professionnel pour démarches administratives et espace de gestion dynamique sécurisé pour ADN Conseils au Kremlin-Bicêtre.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
