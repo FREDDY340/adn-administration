@@ -237,7 +237,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Auth methods
   const loginAdmin = (pin: string) => {
-    if (pin.trim() === settings.adminPin || pin.trim() === '1234') {
+    if (pin.trim() === settings.adminPin) {
       setIsAdminLoggedIn(true);
       sessionStorage.setItem(STORAGE_KEYS.ADMIN_AUTH, 'true');
       return true;

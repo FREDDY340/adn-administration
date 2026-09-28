@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useData } from '../../context/DataContext';
-import { Lock, Key, AlertTriangle, CheckCircle2, ShieldCheck, X } from '../IconHelper';
+import { Lock, Key, AlertTriangle, CheckCircle2, X } from '../IconHelper';
 
 export const AdminLogin: React.FC = () => {
-  const { loginAdmin, setIsAdminModalOpen, settings } = useData();
+  const { loginAdmin, setIsAdminModalOpen } = useData();
   const [pin, setPin] = useState('');
   const [error, setError] = useState(false);
 
@@ -65,18 +65,6 @@ export const AdminLogin: React.FC = () => {
           <span>Accéder au panneau de gestion</span>
         </button>
       </form>
-
-      {/* Demo helper */}
-      <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 text-left space-y-1">
-        <div className="font-bold flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-amber-700" />
-          <span>Code d’accès par défaut :</span>
-        </div>
-        <p className="text-[11px]">
-          Utilisez le code <code className="bg-amber-200/80 px-1.5 py-0.5 rounded font-mono font-bold text-slate-900">{settings.adminPin}</code> pour déverrouiller l’espace (modifiable dans les paramètres).
-        </p>
-      </div>
-
     </div>
   );
 };
