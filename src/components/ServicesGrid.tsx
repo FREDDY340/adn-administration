@@ -17,18 +17,10 @@ export const ServicesGrid: React.FC = () => {
 
   const domainCards = [
     {
-      id: 'etrangers',
-      slug: 'droit-des-etrangers',
-      title: 'Droit des étrangers',
-      description: 'Titre de séjour, renouvellement, changement de statut, regroupement familial...',
-      icon: Users,
-      iconType: 'users'
-    },
-    {
       id: 'nationalite',
       slug: 'nationalite-francaise',
-      title: 'Nationalité française',
-      description: 'Naturalisation, déclaration par mariage, constitution de dossier...',
+      title: 'Conseil en nationalité française et autres droits des étrangers',
+      description: 'Naturalisation, déclaration par mariage, titre de séjour, renouvellement, regroupement familial...',
       icon: Award,
       iconType: 'flag'
     },
@@ -78,8 +70,8 @@ export const ServicesGrid: React.FC = () => {
           <div className="w-9 h-[2.5px] bg-[#d32f2f] mx-auto mt-2.5 rounded-full"></div>
         </div>
 
-        {/* 6 Domain Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-4.5">
+        {/* 5 Domain Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-4.5">
           {domainCards.map((item) => {
             const IconComp = item.icon;
             return (
