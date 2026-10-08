@@ -15,6 +15,7 @@ import {
   MessageSquare
 } from './IconHelper';
 import confetti from 'canvas-confetti';
+import { sendLead, MAX_ATTACHMENTS_BYTES } from '../lib/sendLead';
 
 export const QuoteModal: React.FC = () => {
   const {
@@ -45,6 +46,8 @@ export const QuoteModal: React.FC = () => {
   const [attachments, setAttachments] = useState<FileAttachment[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [sendError, setSendError] = useState('');
+  const [rawFiles, setRawFiles] = useState<Record<string, File>>({});
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -66,6 +69,7 @@ export const QuoteModal: React.FC = () => {
           dataUrl: event.target?.result as string
         };
         setAttachments(prev => [...prev, newAttachment]);
+        setRawFiles(prev => ({ ...prev, [newAttachment.id]: file }));
       };
       reader.readAsDataURL(file);
     });
@@ -76,15 +80,46 @@ export const QuoteModal: React.FC = () => {
 
   const removeAttachment = (id: string) => {
     setAttachments(prev => prev.filter(a => a.id !== id));
+    setRawFiles(prev => { const next = { ...prev }; delete next[id]; return next; });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim() || !phone.trim()) return;
 
-    setIsSubmitting(true);
+    const files = attachments.map(a => rawFiles[a.id]).filter(Boolean) as File[];
+    const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+    if (totalSize > MAX_ATTACHMENTS_BYTES) {
+      setSendError(`Vos pièces jointes dépassent 5 Mo au total. Retirez-en quelques-unes ou envoyez-les par e-mail à ${settings.email}.`);
+      return;
+    }
 
-    setTimeout(() => {
+    setIsSubmitting(true);
+    setSendError('');
+    try {
+      await sendLead(
+        `Demande de devis : ${serviceCategory} (${fullName.trim()})`,
+        {
+          'Type': 'Demande de devis',
+          'Prestation': serviceCategory,
+          'Précision': serviceDetail.trim() || 'Non renseigné',
+          'Nom': fullName.trim(),
+          'Téléphone': phone.trim(),
+          'E-mail': email.trim() || 'Non renseigné',
+          'Contact préféré': preferredContact === 'email' ? 'E-mail' : 'Téléphone',
+          'Urgence': urgency === 'urgent' ? 'Urgent' : 'Normal',
+          'Message': message.trim() || 'Non renseigné',
+          'Pièces jointes': `${files.length} fichier(s)`,
+        },
+        files,
+        email.trim()
+      );
+    } catch {
+      setIsSubmitting(false);
+      setSendError(`L’envoi n’a pas abouti. Réessayez ou appelez-nous au ${settings.phoneDisplay}.`);
+      return;
+    }
+    {
       addRequest({
         type: 'devis',
         fullName: fullName.trim(),
@@ -110,7 +145,7 @@ export const QuoteModal: React.FC = () => {
       } catch (err) {
         // ignore
       }
-    }, 600);
+    }
   };
 
   const handleClose = () => {
@@ -118,6 +153,8 @@ export const QuoteModal: React.FC = () => {
     setPreselectedServiceCategory(null);
     setIsSuccess(false);
     setAttachments([]);
+    setRawFiles({});
+    setSendError('');
     setFullName('');
     setPhone('');
     setEmail('');
@@ -166,12 +203,12 @@ export const QuoteModal: React.FC = () => {
               </div>
               <h3 className="text-2xl font-extrabold text-slate-950">Votre demande de devis est transmise !</h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
-                Nos juristes et conseillers examinent vos informations et documents déposés. Vous recevrez une proposition personnalisée sous 24h.
+                Votre demande et vos documents nous ont bien été transmis. Un conseiller vous recontacte rapidement avec une proposition personnalisée.
               </p>
 
               <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl max-w-md mx-auto text-xs text-left space-y-1">
                 <div><strong>Prestation :</strong> {serviceCategory}</div>
-                <div><strong>Contact :</strong> {fullName} ({phone}) via {preferredContact.toUpperCase()}</div>
+                <div><strong>Contact :</strong> {fullName} ({phone}) via {preferredContact === 'email' ? 'e-mail' : 'téléphone'}</div>
                 <div><strong>Pièces transmises :</strong> {attachments.length} fichier(s)</div>
               </div>
 
@@ -186,6 +223,9 @@ export const QuoteModal: React.FC = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
+              {sendError && (
+                <p role="alert" className="text-xs text-red-600 font-semibold">{sendError}</p>
+              )}
               
               {/* Category & Subtype */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
@@ -222,7 +262,7 @@ export const QuoteModal: React.FC = () => {
               <div className="space-y-2">
                 <label className="font-bold text-slate-700 block text-xs sm:text-sm flex items-center justify-between">
                   <span>Dépôt sécurisé de vos documents (Facultatif) :</span>
-                  <span className="text-[10px] text-slate-400">PDF, JPG, PNG (Max 15 Mo)</span>
+                  <span className="text-[10px] text-slate-400">PDF, JPG, PNG (Max 5 Mo au total)</span>
                 </label>
 
                 <div

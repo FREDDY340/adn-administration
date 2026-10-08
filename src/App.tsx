@@ -32,6 +32,16 @@ const MainLayout: React.FC = () => {
   const { settings, setIsAdminModalOpen, isAdminLoggedIn } = useData();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
+  // The management area is no longer linked publicly: open it with adn-administration.fr/#admin
+  useEffect(() => {
+    const openIfAdminHash = () => {
+      if (window.location.hash === '#admin') setIsAdminModalOpen(true);
+    };
+    openIfAdminHash();
+    window.addEventListener('hashchange', openIfAdminHash);
+    return () => window.removeEventListener('hashchange', openIfAdminHash);
+  }, [setIsAdminModalOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 400) {

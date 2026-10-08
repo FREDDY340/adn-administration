@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adn-administration.fr/sitemap.xml

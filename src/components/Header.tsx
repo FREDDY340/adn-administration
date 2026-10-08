@@ -71,28 +71,11 @@ export const Header: React.FC = () => {
             </span>
             <span className="hidden sm:flex items-center gap-1.5 text-slate-300">
               <Clock className="w-3.5 h-3.5 text-blue-400" />
-              <span>Lun - Ven : 09h-18h | Sam : 09h-13h</span>
+              <span>Lun - Sam : 10h00 - 20h00</span>
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <button
-              id="header-admin-portal-btn"
-              onClick={() => setIsAdminModalOpen(true)}
-              className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-medium transition-all ${
-                isAdminLoggedIn
-                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              <Lock className="w-3 h-3 text-amber-400" />
-              <span>{isAdminLoggedIn ? 'Espace Gestion (Connecté)' : 'Espace Admin'}</span>
-              {(stats.newRequestsCount + stats.pendingAppointmentsCount > 0 && !isAdminLoggedIn) && (
-                <span className="bg-[#d32f2f] text-white font-bold text-[9px] w-3.5 h-3.5 rounded-full flex items-center justify-center">
-                  {stats.newRequestsCount + stats.pendingAppointmentsCount}
-                </span>
-              )}
-            </button>
           </div>
         </div>
       </div>

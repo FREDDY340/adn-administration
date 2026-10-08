@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendLead } from '../lib/sendLead';
 import { useData } from '../context/DataContext';
 import {
   Phone,
@@ -22,13 +23,27 @@ export const ContactSection: React.FC = () => {
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim() || !phone.trim() || !message.trim()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setSendError(false);
+    try {
+      await sendLead(
+        `Nouveau message du site : ${fullName.trim()}`,
+        { 'Type': 'Message de contact', 'Nom': fullName.trim(), 'Téléphone': phone.trim(), 'E-mail': email.trim() || 'Non renseigné', 'Message': message.trim() },
+        [],
+        email.trim()
+      );
+    } catch {
+      setIsSubmitting(false);
+      setSendError(true);
+      return;
+    }
+    {
       addRequest({
         type: 'contact',
         fullName: fullName.trim(),
@@ -46,7 +61,7 @@ export const ContactSection: React.FC = () => {
       setPhone('');
       setEmail('');
       setMessage('');
-    }, 500);
+    }
   };
 
   return (
@@ -131,8 +146,8 @@ export const ContactSection: React.FC = () => {
                     <Clock className="w-4 h-4" />
                   </div>
                   <div className="space-y-0.5">
-                    <p className="font-semibold text-slate-900">Lundi - Vendredi 9h - 18h</p>
-                    <p className="text-slate-500">Samedi 9h - 13h</p>
+                    <p className="font-semibold text-slate-900">Lundi - Samedi 10h00 - 20h00</p>
+                    <p className="text-slate-500">Dimanche : fermé</p>
                   </div>
                 </div>
 
@@ -209,6 +224,11 @@ export const ContactSection: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {sendError && (
+                  <p role="alert" className="text-xs text-red-600 font-semibold">
+                    L’envoi n’a pas abouti. Réessayez ou appelez-nous au {settings.phoneDisplay}.
+                  </p>
+                )}
                 <div className="border-b border-slate-200 pb-3">
                   <h4 className="text-base font-bold text-[#0c2340]">Formulaire de contact rapide</h4>
                   <p className="text-xs text-slate-500">Posez vos questions ou décrivez votre démarche administrative.</p>

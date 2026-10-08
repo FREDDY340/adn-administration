@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendLead } from '../lib/sendLead';
 import { useData } from '../context/DataContext';
 import { AppointmentType } from '../types';
 import {
@@ -46,28 +47,58 @@ export const AppointmentModal: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isConfirmed, setIsConfirmed] = useState<boolean>(false);
+  const [sendError, setSendError] = useState<string>('');
 
   if (!isAppointmentModalOpen) return null;
 
   const timeSlots = [
-    '09:30 - 10:15',
-    '10:30 - 11:15',
-    '11:30 - 12:15',
-    '14:15 - 15:00',
-    '15:15 - 16:00',
-    '16:15 - 17:00',
-    '17:15 - 18:00',
+    '10:00 - 10:45',
+    '11:00 - 11:45',
+    '12:00 - 12:45',
+    '14:00 - 14:45',
+    '15:00 - 15:45',
+    '16:00 - 16:45',
+    '17:00 - 17:45',
+    '18:00 - 18:45',
+    '19:00 - 19:45',
   ];
 
   const selectedService = services.find(s => s.id === selectedServiceId) || services[0];
 
-  const handleConfirmBooking = (e: React.FormEvent) => {
+  const handleConfirmBooking = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim() || !phone.trim()) return;
+    if (new Date(selectedDate + 'T12:00:00').getDay() === 0) {
+      setSendError('Le cabinet est fermé le dimanche. Choisissez un jour du lundi au samedi.');
+      return;
+    }
 
     setIsSubmitting(true);
-
-    setTimeout(() => {
+    setSendError('');
+    const typeLabel = appointmentType === 'cabinet' ? 'Au cabinet' : appointmentType === 'telephone' ? 'Par téléphone' : 'En visioconférence';
+    try {
+      await sendLead(
+        `Demande de rendez-vous : ${selectedDate} ${selectedSlot} (${fullName.trim()})`,
+        {
+          'Type': 'Demande de rendez-vous',
+          'Démarche': selectedService.title,
+          'Format': typeLabel,
+          'Date souhaitée': new Date(selectedDate + 'T12:00:00').toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }),
+          'Créneau': selectedSlot,
+          'Nom': fullName.trim(),
+          'Téléphone': phone.trim(),
+          'E-mail': email.trim() || 'Non renseigné',
+          'Notes': notes.trim() || 'Aucune',
+        },
+        [],
+        email.trim()
+      );
+    } catch {
+      setIsSubmitting(false);
+      setSendError(`L’envoi n’a pas abouti. Réessayez ou appelez-nous au ${settings.phoneDisplay}.`);
+      return;
+    }
+    {
       addAppointment({
         fullName: fullName.trim(),
         email: email.trim() || 'Non renseigné',
@@ -92,13 +123,14 @@ export const AppointmentModal: React.FC = () => {
       } catch (err) {
         // ignore confetti failure if environment restricts
       }
-    }, 600);
+    }
   };
 
   const handleClose = () => {
     setIsAppointmentModalOpen(false);
     setStep(1);
     setIsConfirmed(false);
+    setSendError('');
     setFullName('');
     setPhone('');
     setEmail('');
@@ -164,9 +196,9 @@ export const AppointmentModal: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-extrabold text-slate-950">Votre rendez-vous est pré-réservé !</h3>
+              <h3 className="text-2xl font-extrabold text-slate-950">Votre demande de rendez-vous est envoyée !</h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
-                Un e-mail et un SMS de confirmation avec le récapitulatif des pièces à apporter vous ont été adressés.
+                Un conseiller vous recontacte rapidement pour confirmer le créneau et vous indiquer les pièces à apporter.
               </p>
 
               {/* Summary Card */}
@@ -311,6 +343,9 @@ export const AppointmentModal: React.FC = () => {
               {/* STEP 3: Contact Info */}
               {step === 3 && (
                 <form onSubmit={handleConfirmBooking} className="space-y-4 animate-in fade-in duration-200">
+                  {sendError && (
+                    <p role="alert" className="text-xs text-red-600 font-semibold">{sendError}</p>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
                     <div className="space-y-1">
                       <label className="font-bold text-slate-700 block">Nom & Prénom * :</label>

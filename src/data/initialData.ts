@@ -379,108 +379,9 @@ export const INITIAL_TESTIMONIALS: Testimonial[] = [
   }
 ];
 
-export const INITIAL_CONTACT_REQUESTS: ContactOrQuoteRequest[] = [
-  {
-    id: 'req-101',
-    type: 'devis',
-    createdAt: '2025-02-25 10:15',
-    fullName: 'Yassine Mansouri',
-    email: 'yassine.mansouri@email.com',
-    phone: '06 12 34 56 78',
-    preferredContact: 'whatsapp',
-    serviceCategory: 'Droit des Étrangers',
-    serviceDetail: 'Changement de statut étudiant vers salarié',
-    message: 'Bonjour, j’ai trouvé un CDI et je souhaite déposer ma demande de changement de statut. Mon titre expire dans 2 mois et j’aimerais un accompagnement pour ne rien oublier.',
-    status: 'nouveau',
-    internalNotes: 'À rappeler via WhatsApp pour fixer un audit de pièces.',
-    urgency: 'urgent',
-    attachments: [
-      { id: 'att-1', name: 'promesse_embauche_cdi.pdf', size: 245000, type: 'application/pdf' }
-    ]
-  },
-  {
-    id: 'req-102',
-    type: 'devis',
-    createdAt: '2025-02-24 16:40',
-    fullName: 'Sara Alami',
-    email: 'sara.alami@gmail.com',
-    phone: '07 89 45 12 30',
-    preferredContact: 'email',
-    serviceCategory: 'Traduction Assermentée',
-    serviceDetail: 'Traduction Arabe vers Français de 2 actes',
-    message: 'Besoin d’un devis urgent pour la traduction d’un acte de naissance et d’un livret de famille pour un dépôt de nationalité.',
-    status: 'en_cours',
-    internalNotes: 'Devis envoyé par email (65 € TTC). En attente du retour client.',
-    urgency: 'normal',
-    attachments: [
-      { id: 'att-2', name: 'acte_naissance_original.jpg', size: 520000, type: 'image/jpeg' }
-    ]
-  },
-  {
-    id: 'req-103',
-    type: 'contact',
-    createdAt: '2025-02-23 11:20',
-    fullName: 'David Morel',
-    email: 'contact@morel-transport.fr',
-    phone: '01 42 55 60 70',
-    preferredContact: 'phone',
-    serviceCategory: 'Domiciliation d’Entreprise',
-    serviceDetail: 'Création SASU Transport',
-    message: 'Bonjour, je souhaite domicilier ma future société chez vous au Kremlin-Bicêtre et savoir si vous proposez la réception avec numérisation du courrier.',
-    status: 'traite',
-    internalNotes: 'Contrat envoyé et signé. Attestation de domiciliation remise.',
-    urgency: 'normal',
-    attachments: []
-  }
-];
+export const INITIAL_CONTACT_REQUESTS: ContactOrQuoteRequest[] = [];
 
-export const INITIAL_APPOINTMENTS: Appointment[] = [
-  {
-    id: 'apt-201',
-    createdAt: '2025-02-25 09:30',
-    fullName: 'Nadia Cherif',
-    email: 'nadia.cherif@yahoo.fr',
-    phone: '06 50 40 30 20',
-    serviceId: 'nationalite-francaise',
-    serviceTitle: 'Nationalité Française & Naturalisation',
-    appointmentType: 'cabinet',
-    date: '2025-02-27',
-    timeSlot: '14:00 - 14:45',
-    notes: 'Première demande de naturalisation par décret, 6 ans de résidence.',
-    status: 'confirme',
-    internalNotes: 'Préparer la grille d’évaluation P237 et B1.'
-  },
-  {
-    id: 'apt-202',
-    createdAt: '2025-02-24 18:10',
-    fullName: 'Tariq Ozturk',
-    email: 'tariq.ozturk@gmail.com',
-    phone: '07 60 70 80 90',
-    serviceId: 'droit-etrangers',
-    serviceTitle: 'Droit des Étrangers & Titres de Séjour',
-    appointmentType: 'telephone',
-    date: '2025-02-28',
-    timeSlot: '10:30 - 11:00',
-    notes: 'Demande d’informations pour regroupement familial conjoint.',
-    status: 'en_attente',
-    internalNotes: 'Client anglophone ou turcophone.'
-  },
-  {
-    id: 'apt-203',
-    createdAt: '2025-02-22 14:00',
-    fullName: 'Julien Lambert',
-    email: 'j.lambert@outlook.fr',
-    phone: '06 11 22 33 44',
-    serviceId: 'carte-grise',
-    serviceTitle: 'Carte Grise & Démarches d’Immatriculation',
-    appointmentType: 'cabinet',
-    date: '2025-02-26',
-    timeSlot: '16:00 - 16:30',
-    notes: 'Véhicule importé d’Allemagne, conformité et quitus.',
-    status: 'termine',
-    internalNotes: 'Dossier complet remis et CPI imprimé.'
-  }
-];
+export const INITIAL_APPOINTMENTS: Appointment[] = [];
 
 export const INITIAL_SITE_SETTINGS: SiteSettings = {
   companyName: 'ADN Conseils',
@@ -493,12 +394,12 @@ export const INITIAL_SITE_SETTINGS: SiteSettings = {
   whatsapp: '',
   email: 'contact@adn-administration.fr',
   openingHours: [
-    { day: 'Lundi', hours: '09h00 - 12h30 & 14h00 - 18h30', isOpen: true },
-    { day: 'Mardi', hours: '09h00 - 12h30 & 14h00 - 18h30', isOpen: true },
-    { day: 'Mercredi', hours: '09h00 - 12h30 & 14h00 - 18h30', isOpen: true },
-    { day: 'Jeudi', hours: '09h00 - 12h30 & 14h00 - 18h30', isOpen: true },
-    { day: 'Vendredi', hours: '09h00 - 12h30 & 14h00 - 18h00', isOpen: true },
-    { day: 'Samedi', hours: '09h30 - 13h00 (Sur rendez-vous)', isOpen: true },
+    { day: 'Lundi', hours: '10h00 - 20h00', isOpen: true },
+    { day: 'Mardi', hours: '10h00 - 20h00', isOpen: true },
+    { day: 'Mercredi', hours: '10h00 - 20h00', isOpen: true },
+    { day: 'Jeudi', hours: '10h00 - 20h00', isOpen: true },
+    { day: 'Vendredi', hours: '10h00 - 20h00', isOpen: true },
+    { day: 'Samedi', hours: '10h00 - 20h00', isOpen: true },
     { day: 'Dimanche', hours: 'Fermé', isOpen: false }
   ],
   alertBanner: {
@@ -511,8 +412,8 @@ export const INITIAL_SITE_SETTINGS: SiteSettings = {
   languagesSpoken: ['Français', 'Arabe', 'English', 'Español', 'Türkçe'],
   socialLinks: {
     googleMaps: 'https://maps.google.com/?q=119+Avenue+de+Fontainebleau+94270+Le+Kremlin-Bicêtre',
-    facebook: 'https://facebook.com',
-    linkedin: 'https://linkedin.com',
-    instagram: 'https://instagram.com'
+    facebook: '',
+    linkedin: '',
+    instagram: ''
   }
 };

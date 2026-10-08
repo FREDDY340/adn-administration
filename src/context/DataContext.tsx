@@ -183,6 +183,8 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
           phoneDisplay: INITIAL_SITE_SETTINGS.phoneDisplay,
           whatsapp: '',
           email: INITIAL_SITE_SETTINGS.email,
+          openingHours: INITIAL_SITE_SETTINGS.openingHours,
+          adminPin: parsed.adminPin && parsed.adminPin !== '1234' ? parsed.adminPin : INITIAL_SITE_SETTINGS.adminPin,
         };
       }
       return INITIAL_SITE_SETTINGS;
