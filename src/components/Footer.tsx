@@ -176,18 +176,10 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-slate-400">
               <li>
                 <button
-                  onClick={() => setActiveServiceSlug('droit-des-etrangers')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Droit des étrangers
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => setActiveServiceSlug('nationalite-francaise')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Nationalité française
+                  Nationalité et droits des étrangers
                 </button>
               </li>
               <li>

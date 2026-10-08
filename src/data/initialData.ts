@@ -2,45 +2,11 @@ import { BlogPost, ContactOrQuoteRequest, Appointment, FaqItem, ServiceItem, Sit
 
 export const INITIAL_SERVICES: ServiceItem[] = [
   {
-    id: 'droit-etrangers',
-    slug: 'droit-des-etrangers',
-    title: 'Droit des Étrangers & Titres de Séjour',
-    shortDescription: 'Assistance complète pour première demande, renouvellement, changement de statut et régularisation.',
-    fullDescription: 'Notre cabinet vous accompagne avec rigueur dans la constitution, la vérification et le suivi de vos démarches administratives en préfecture. Nous analysons point par point vos justificatifs pour maximiser la conformité de votre dossier selon les critères officiels.',
-    category: 'etrangers',
-    priceEstimate: 'À partir de 120 €',
-    processingTime: 'Analyse en 24h à 48h',
-    badge: 'Forte demande',
-    icon: 'FileText',
-    requiredDocuments: [
-      'Passeport en cours de validité (toutes les pages)',
-      'Titre de séjour actuel ou visa d’entrée',
-      'Justificatif de domicile de moins de 3 mois (quittance, facture, attestation)',
-      '3 photos d’identité récentes aux normes e-photo ANTS',
-      'Justificatifs de ressources (fiches de paie, avis d’imposition)',
-      'Justificatifs d’état civil (acte de naissance plurilingue ou traduit)'
-    ],
-    steps: [
-      { step: 1, title: 'Bilan initial de votre situation', description: 'Étude confidentielle de vos critères d’éligibilité et de votre parcours administratif.' },
-      { step: 2, title: 'Établissement de la liste des pièces', description: 'Remise d’une checklist personnalisée et vérification minutieuse de chaque justificatif.' },
-      { step: 3, title: 'Montage et relecture du dossier', description: 'Organisation méthodique du dossier au format préfectoral et préparation aux formulaires.' },
-      { step: 4, title: 'Assistance au dépôt et suivi', description: 'Aide à la prise de rendez-vous ou dépôt dématérialisé (ANEF) et traitement des pièces complémentaires.' }
-    ],
-    highlights: [
-      'Accompagnement ANEF & Préfectures d’Île-de-France',
-      'Vérification anti-rejet avant soumission',
-      'Préparation aux entretiens d’instruction',
-      'Orientation vers nos avocats partenaires si besoin de contentieux'
-    ],
-    active: true,
-    featured: true,
-  },
-  {
     id: 'nationalite-francaise',
     slug: 'nationalite-francaise',
-    title: 'Nationalité Française & Naturalisation',
-    shortDescription: 'Accompagnement sur-mesure pour demande par décret, par mariage ou filiation, et préparation à l’entretien.',
-    fullDescription: 'Devenir citoyen français est une étape majeure nécessitant un dossier irréprochable et une préparation approfondie. Nous vérifions l’ensemble de vos attaches en France, vos déclarations fiscales, vos diplômes et nous vous entraînons à l’entretien d’assimilation républicaine.',
+    title: 'Conseil en nationalité française et autres droits des étrangers',
+    shortDescription: 'Naturalisation par décret, par mariage ou filiation, titres de séjour, renouvellements, changements de statut et regroupement familial.',
+    fullDescription: 'Devenir citoyen français est une étape majeure nécessitant un dossier irréprochable et une préparation approfondie. Nous vérifions l’ensemble de vos attaches en France, vos déclarations fiscales, vos diplômes et nous vous entraînons à l’entretien d’assimilation républicaine. Nous vous accompagnons aussi pour vos autres démarches en préfecture : première demande et renouvellement de titre de séjour, changement de statut, regroupement familial.',
     category: 'nationalite',
     priceEstimate: 'À partir de 180 €',
     processingTime: 'Accompagnement sur la durée',

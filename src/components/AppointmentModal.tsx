@@ -29,7 +29,7 @@ export const AppointmentModal: React.FC = () => {
   } = useData();
 
   const [step, setStep] = useState<number>(1);
-  const [selectedServiceId, setSelectedServiceId] = useState<string>(services[0]?.id || 'droit-etrangers');
+  const [selectedServiceId, setSelectedServiceId] = useState<string>(services[0]?.id || 'nationalite-francaise');
   const [appointmentType, setAppointmentType] = useState<AppointmentType>('cabinet');
   
   // Date selection (default tomorrow)

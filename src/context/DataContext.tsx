@@ -113,7 +113,12 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [services, setServices] = useState<ServiceItem[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.SERVICES);
-      return saved ? JSON.parse(saved) : INITIAL_SERVICES;
+      if (!saved) return INITIAL_SERVICES;
+      // The foreigners' rights service is merged into the nationality service
+      const merged = INITIAL_SERVICES.find(s => s.id === 'nationalite-francaise');
+      return (JSON.parse(saved) as ServiceItem[])
+        .filter(s => s.id !== 'droit-etrangers')
+        .map(s => (s.id === 'nationalite-francaise' && merged ? { ...s, title: merged.title, shortDescription: merged.shortDescription, fullDescription: merged.fullDescription } : s));
     } catch {
       return INITIAL_SERVICES;
     }
