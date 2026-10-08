@@ -75,18 +75,20 @@ export const LegalModal: React.FC = () => {
                 <h3 className="font-bold text-slate-900 text-base mb-1">1. Identification de l’Éditeur</h3>
                 <p>
                   <strong>Dénomination sociale :</strong> {settings.companyName}<br />
+                  <strong>Forme juridique :</strong> SAS (société par actions simplifiée)<br />
+                  <strong>SIRET :</strong> immatriculation en cours<br />
                   <strong>Activité :</strong> Conseil et accompagnement aux démarches administratives<br />
                   <strong>Adresse du siège social :</strong> {settings.address}, {settings.postalCode} {settings.city} (France)<br />
                   <strong>Téléphone :</strong> {settings.phoneDisplay}<br />
                   <strong>E-mail de contact :</strong> {settings.email}<br />
-                  <strong>Directeur de la publication :</strong> Direction Générale ADN Conseils
+                  <strong>Directeur de la publication :</strong> Nordin Adoun, président
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold text-slate-900 text-base mb-1">2. Hébergement du site</h3>
                 <p>
-                  Le site internet est hébergé sur une infrastructure sécurisée conforme aux standards européens de haute disponibilité et de protection des données (Google Cloud Platform / Cloud Run).
+                  Le site est hébergé par <strong>GitHub, Inc.</strong> (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (github.com). Le nom de domaine est enregistré auprès de LWS (Ligne Web Services), 10 rue Penthièvre, 75008 Paris.
                 </p>
               </div>
 
@@ -107,7 +109,7 @@ export const LegalModal: React.FC = () => {
               <div>
                 <h3 className="font-bold text-slate-900 text-base mb-1">Collecte et Traitement des Données (RGPD)</h3>
                 <p>
-                  Conformément au Règlement Général sur la Protection des Données (RGPD n° 2016/679) et à la loi Informatique et Libertés, les données recueillies sur ce site (formulaires de contact, devis, prise de rendez-vous, pièces justificatives téléversées) sont traitées exclusivement par l'équipe autorisée d'ADN Conseils.
+                  Conformément au Règlement Général sur la Protection des Données (RGPD n° 2016/679) et à la loi Informatique et Libertés, les données recueillies sur ce site (formulaires de contact, devis, prise de rendez-vous, pièces justificatives téléversées) sont traitées exclusivement par l'équipe autorisée d'ADN Conseils. Les demandes envoyées depuis les formulaires, et leurs pièces jointes, sont transmises par e-mail à ADN Conseils via le service FormSubmit ; elles ne sont pas conservées sur le site.
                 </p>
               </div>
 
