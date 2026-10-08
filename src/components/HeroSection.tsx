@@ -50,7 +50,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Description */}
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl font-normal">
-              ADN Conseils vous accompagne avec sérieux et bienveillance dans vos démarches liées au droit des étrangers, à la nationalité française, à la domiciliation, aux cartes grises et aux traductions de documents.
+              ADN Conseils vous accompagne avec sérieux et bienveillance dans vos démarches liées à la nationalité française, au droit des étrangers, à la création d’entreprise et à la traduction de documents par traducteur agréé.
             </p>
 
             {/* 4 Action Buttons Grid (2x2) */}

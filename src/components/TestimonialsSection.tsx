@@ -16,12 +16,6 @@ export const TestimonialsSection: React.FC = () => {
       text: "Le dossier de naturalisation a été préparé avec sérieux. Je recommande vivement ADN Conseils.",
       author: '- M. D.',
       rating: 5
-    },
-    {
-      id: '3',
-      text: "Service rapide et efficace pour ma carte grise. Tout s'est très bien déroulé.",
-      author: '- S. R.',
-      rating: 5
     }
   ];
 
@@ -37,8 +31,8 @@ export const TestimonialsSection: React.FC = () => {
           <div className="w-9 h-[2.5px] bg-[#d32f2f] mx-auto mt-2.5 rounded-full"></div>
         </div>
 
-        {/* 3 Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Testimonial Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {testimonials.map((item) => (
             <div
               key={item.id}
@@ -73,21 +67,6 @@ export const TestimonialsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Carousel Pagination Dots (1 red active, 3 grey) */}
-        <div className="flex items-center justify-center gap-1.5 mt-8">
-          {[0, 1, 2, 3].map((dot) => (
-            <button
-              key={dot}
-              onClick={() => setActiveDot(dot)}
-              aria-label={`Témoignage page ${dot + 1}`}
-              className={`h-2 rounded-full transition-all cursor-pointer ${
-                activeDot === dot
-                  ? 'w-5 bg-[#d32f2f]'
-                  : 'w-2 bg-slate-300 hover:bg-slate-400'
-              }`}
-            />
-          ))}
-        </div>
 
       </div>
     </section>

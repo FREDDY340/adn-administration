@@ -25,33 +25,17 @@ export const ServicesGrid: React.FC = () => {
       iconType: 'flag'
     },
     {
-      id: 'domiciliation-pro',
-      slug: 'domiciliation-entreprise',
-      title: "Domiciliation d'entreprise",
-      description: 'Adresse professionnelle, réception courrier, salles de réunion...',
+      id: 'creation',
+      slug: 'creation-entreprise',
+      title: 'Création d’entreprise',
+      description: 'SARL, SAS, EURL, SCI, micro-entreprise...',
       icon: Building2,
       iconType: 'building'
     },
     {
-      id: 'domiciliation-perso',
-      slug: 'domiciliation-personnelle',
-      title: 'Domiciliation personnelle',
-      description: 'Adresse de correspondance, courrier administratif, accompagnement...',
-      icon: Users,
-      iconType: 'person'
-    },
-    {
-      id: 'cartegrise',
-      slug: 'carte-grise-immatriculation',
-      title: 'Carte grise',
-      description: "Changement de titulaire, changement d'adresse, duplicata, importation...",
-      icon: Car,
-      iconType: 'car'
-    },
-    {
       id: 'traduction',
       slug: 'traduction-assermentee',
-      title: 'Traduction de documents',
+      title: 'Traduction de documents par traducteur agréé',
       description: 'Traduction agréée toutes langues, documents officiels...',
       icon: FileText,
       iconType: 'document'
@@ -70,8 +54,8 @@ export const ServicesGrid: React.FC = () => {
           <div className="w-9 h-[2.5px] bg-[#d32f2f] mx-auto mt-2.5 rounded-full"></div>
         </div>
 
-        {/* 5 Domain Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-4.5">
+        {/* 3 Domain Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
           {domainCards.map((item) => {
             const IconComp = item.icon;
             return (

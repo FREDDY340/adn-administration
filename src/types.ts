@@ -3,7 +3,8 @@ export type ServiceCategory =
   | 'nationalite' 
   | 'domiciliation' 
   | 'cartegrise' 
-  | 'traduction' 
+  | 'traduction'
+  | 'creation' 
   | 'autre'
   | string;
 

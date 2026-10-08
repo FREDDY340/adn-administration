@@ -29,8 +29,7 @@ export const QuoteModal: React.FC = () => {
 
   const [serviceCategory, setServiceCategory] = useState<string>(
     preselectedServiceCategory === 'etrangers' || preselectedServiceCategory === 'nationalite' ? 'Nationalité et droits des étrangers' :
-    preselectedServiceCategory === 'domiciliation' ? 'Domiciliation d’Entreprise' :
-    preselectedServiceCategory === 'cartegrise' ? 'Carte Grise & Immatriculation' :
+    preselectedServiceCategory === 'creation' ? 'Création d’entreprise' :
     preselectedServiceCategory === 'traduction' ? 'Traduction Assermentée' : 'Nationalité et droits des étrangers'
   );
 
@@ -236,10 +235,8 @@ export const QuoteModal: React.FC = () => {
                     className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-400 text-xs font-semibold text-slate-900"
                   >
                     <option value="Nationalité et droits des étrangers">Nationalité française et droits des étrangers</option>
-                    <option value="Domiciliation d’Entreprise">Domiciliation d’Entreprise</option>
-                    <option value="Aide à l’Adresse">Aide à l’Adresse & Correspondance</option>
-                    <option value="Carte Grise & Immatriculation">Carte Grise & Immatriculation</option>
-                    <option value="Traduction Assermentée">Traduction Assermentée</option>
+                    <option value="Création d’entreprise">Création d’entreprise (SARL, SAS, EURL, SCI, micro)</option>
+                    <option value="Traduction Assermentée">Traduction de documents (traducteur agréé)</option>
                     <option value="Autre formalité">Autre formalité administrative</option>
                   </select>
                 </div>

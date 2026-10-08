@@ -36,97 +36,29 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     featured: true,
   },
   {
-    id: 'domiciliation-entreprise',
-    slug: 'domiciliation-entreprise',
-    title: 'Domiciliation d’Entreprise & Siège Social',
-    shortDescription: 'Adresse commerciale prestigieuse au Kremlin-Bicêtre avec gestion, numérisation et réexpédition du courrier.',
-    fullDescription: 'Donnez une adresse professionnelle reconnue à votre micro-entreprise, SASU, SARL ou profession libérale aux portes de Paris. Notre service comprend la réception sécurisée de vos plis, la notification instantanée par email et des forfaits de réexpédition ou numérisation.',
-    category: 'domiciliation',
-    priceEstimate: 'Dès 29 € HT / mois',
-    processingTime: 'Attestation en 24h',
-    badge: 'Formule PRO',
+    id: 'creation-entreprise',
+    slug: 'creation-entreprise',
+    title: 'Création d’entreprise',
+    shortDescription: 'SARL, SAS, EURL, SCI ou micro-entreprise : choix du statut, rédaction des documents et immatriculation.',
+    fullDescription: 'Nous vous accompagnons dans la création de votre société ou de votre micro-entreprise : choix de la forme juridique la plus adaptée à votre projet (SARL, SAS, EURL, SCI, micro-entreprise), préparation des documents, constitution du dossier et suivi de l’immatriculation jusqu’à l’obtention de votre numéro SIRET.',
+    category: 'creation',
+    priceEstimate: 'Sur devis',
+    processingTime: 'Selon la forme juridique',
     icon: 'Building2',
     requiredDocuments: [
-      'Pièce d’identité du dirigeant en cours de validité',
-      'Justificatif de domicile personnel de moins de 3 mois',
-      'Projet de statuts ou extrait Kbis (si société déjà immatriculée)',
-      'Déclaration de non-condamnation et filiation',
-      'Relevé d’identité bancaire (RIB)'
+      'Pièce d’identité du ou des dirigeants',
+      'Justificatif de domicile ou adresse du futur siège',
+      'Description de l’activité envisagée'
     ],
     steps: [
-      { step: 1, title: 'Sélection de la formule', description: 'Choix des options : gestion du courrier simple, numérisation quotidienne ou réexpédition hebdomadaire.' },
-      { step: 2, title: 'Signature du contrat de domiciliation', description: 'Contrat commercial clair conforme aux dispositions légales (durée min. 3 mois).' },
-      { step: 3, title: 'Remise de l’attestation de domiciliation', description: 'Délivrance immédiate de votre attestation pour le Greffe ou le Guichet Unique INPI.' },
-      { step: 4, title: 'Accès aux services complémentaires', description: 'Location de salle de réunion et assistance aux formalités de modification statutaire.' }
+      { step: 1, title: 'Étude de votre projet', description: 'Nous faisons le point sur votre activité et vous conseillons la forme juridique la plus adaptée.' },
+      { step: 2, title: 'Préparation du dossier', description: 'Rédaction des documents nécessaires et vérification des pièces justificatives.' },
+      { step: 3, title: 'Immatriculation', description: 'Dépôt du dossier et suivi jusqu’à l’obtention de votre numéro SIRET.' }
     ],
     highlights: [
-      'Adresse stratégique à 2 min du métro M7 Kremlin-Bicêtre',
-      'Notification en temps réel par SMS / Email',
-      'Scan sécurisé de votre courrier officiel',
-      'Contrat conforme et reconnu par le Greffe du Tribunal'
-    ],
-    active: true,
-    featured: true,
-  },
-  {
-    id: 'domiciliation-personnelle',
-    slug: 'domiciliation-personnelle',
-    title: 'Aide à l’Adresse & Suivi de Correspondance',
-    shortDescription: 'Accompagnement dans la gestion de votre adresse administrative et vos démarches de correspondance.',
-    fullDescription: 'Une adresse fiable et suivie est essentielle pour ne manquer aucune notification administrative, fiscale ou juridique. Nous vous aidons à structurer votre dossier de correspondance et à organiser le suivi méthodique de vos courriers officiels en toute légalité et discrétion.',
-    category: 'domiciliation',
-    priceEstimate: 'Sur devis',
-    processingTime: 'Mise en place rapide',
-    badge: 'Accompagnement',
-    icon: 'Mail',
-    requiredDocuments: [
-      'Pièce d’identité ou titre de séjour',
-      'Dernier justificatif d’hébergement ou situation de résidence',
-      'Formulaire de recueil d’information confidentiel'
-    ],
-    steps: [
-      { step: 1, title: 'Entretien d’évaluation', description: 'Identification précise de votre besoin et vérification de la compatibilité légale.' },
-      { step: 2, title: 'Montage du dossier de correspondance', description: 'Organisation des pièces justificatives nécessaires pour les administrations.' },
-      { step: 3, title: 'Mise en place du suivi', description: 'Tenue d’un registre des démarches et veille sur les échéances de réponse.' }
-    ],
-    highlights: [
-      'Explication transparente du cadre légal',
-      'Gestion préventive des délais de recours',
-      'Discrétion absolue et respect de la vie privée'
-    ],
-    active: true,
-    featured: false,
-  },
-  {
-    id: 'carte-grise',
-    slug: 'carte-grise-immatriculation',
-    title: 'Carte Grise & Démarches d’Immatriculation',
-    shortDescription: 'Changement de titulaire, duplicata, changement d’adresse et véhicules importés traités rapidement.',
-    fullDescription: 'Évitez les blocages et les lenteurs des plateformes numériques. Nous prenons en charge la saisie de votre certificat d’immatriculation, le calcul exact des taxes régionales et l’obtention de votre Certificat Provisoire d’Immatriculation (CPI) en toute sérénité.',
-    category: 'cartegrise',
-    priceEstimate: 'Dès 35 € (hors taxes fiscales)',
-    processingTime: 'Traitement en 24h - 48h',
-    badge: 'Service Express',
-    icon: 'Car',
-    requiredDocuments: [
-      'Ancienne carte grise barrée, datée et signée par le vendeur',
-      'Certificat de cession (Cerfa 15776*02) dûment rempli',
-      'Contrôle technique de moins de 6 mois (pour véhicules > 4 ans)',
-      'Permis de conduire correspondant à la catégorie du véhicule',
-      'Attestation d’assurance valide',
-      'Justificatif de domicile de moins de 6 mois'
-    ],
-    steps: [
-      { step: 1, title: 'Calcul instantané du coût', description: 'Estimation automatique de la taxe fiscale régionale et des frais de traitement.' },
-      { step: 2, title: 'Dépôt des pièces numérisées', description: 'Contrôle de la conformité du certificat de cession et du contrôle technique.' },
-      { step: 3, title: 'Validation et émission du CPI', description: 'Délivrance immédiate de votre Certificat Provisoire d’Immatriculation pour circuler légalement.' },
-      { step: 4, title: 'Réception de la carte grise définitive', description: 'Livraison sécurisée par La Poste avec accusé de réception à votre domicile.' }
-    ],
-    highlights: [
-      'Calculateur de taxe fiscale intégré',
-      'Délivrance de CPI immédiate',
-      'Gestion des véhicules français et importés d’Europe',
-      'Assistance en cas de gage ou de blocage administratif'
+      'SARL, SAS, EURL, SCI et micro-entreprise',
+      'Conseil sur le choix du statut',
+      'Accompagnement jusqu’à l’immatriculation'
     ],
     active: true,
     featured: true,
@@ -211,25 +143,6 @@ Notre équipe au Kremlin-Bicêtre effectue un contrôle complet de la lisibilit�
     author: 'Service Démarches Étrangers',
     tags: ['ANEF', 'Titre de séjour', 'Préfecture', 'Renouvellement'],
     published: true
-  },
-  {
-    id: 'pourquoi-domicilier-entreprise',
-    slug: 'pourquoi-domicilier-entreprise-siege-social',
-    title: 'Domicilier son entreprise au Kremlin-Bicêtre : Avantages fiscaux et praticité',
-    excerpt: 'Pourquoi séparer son adresse personnelle de son activité professionnelle et bénéficier d’une adresse stratégique aux portes de Paris.',
-    content: `Créer son entreprise sans exposer son adresse personnelle sur les registres publics offre des avantages majeurs en matière de sécurité, de crédibilité et d'organisation.
-
-### Protéger sa vie privée
-L'adresse du siège social figure obligatoirement sur les factures, le site internet et les avis d'imposition. Domicilier sa société chez un professionnel agréé protège le domicile du dirigeant.
-
-### Gestion optimisée du courrier
-Grâce à la numérisation quotidienne et à la réexpédition des courriers officiels (Greffe, Urssaf, Trésor Public), vous ne manquez aucune notification cruciale lors de vos déplacements.`,
-    category: 'Entreprise',
-    readTime: '5 min de lecture',
-    publishedAt: '2025-01-10',
-    author: 'Pôle Entreprises ADN Conseils',
-    tags: ['Domiciliation', 'Création d’entreprise', 'Siège social', 'Micro-entreprise'],
-    published: true
   }
 ];
 
@@ -275,14 +188,6 @@ export const INITIAL_FAQS: FaqItem[] = [
     order: 5
   },
   {
-    id: 'faq-6',
-    question: 'Quels sont les délais d’obtention d’une carte grise ?',
-    answer: 'Dès validation de vos pièces justificatives, nous effectuons la saisie officielle et vous délivrons votre Certificat Provisoire d’Immatriculation (CPI) sous 24h à 48h. La carte grise définitive est ensuite expédiée directement par l’Imprimerie Nationale sous pli sécurisé à votre domicile.',
-    category: 'Carte Grise',
-    featured: false,
-    order: 6
-  },
-  {
     id: 'faq-7',
     question: 'Quelles sont les langues parlées à l’accueil du cabinet ?',
     answer: 'Notre équipe vous accueille et vous accompagne en Français, Arabe, Anglais, Espagnol et Turc pour vous garantir une parfaite compréhension de chaque étape de vos formalités.',
@@ -314,32 +219,12 @@ export const INITIAL_TESTIMONIALS: Testimonial[] = [
     approved: true
   },
   {
-    id: 't-3',
-    clientName: 'Société TechNova (Amine S.)',
-    serviceCategory: 'Domiciliation d’Entreprise',
-    rating: 5,
-    comment: 'Domiciliation rapide et efficace pour ma SASU. L’attestation a été délivrée en 24h et le service de numérisation du courrier me permet de gérer mon activité à distance en toute tranquillité.',
-    date: '18 Février 2025',
-    verified: true,
-    approved: true
-  },
-  {
     id: 't-4',
     clientName: 'Fatoumata D.',
     serviceCategory: 'Traduction Assermentée',
     rating: 5,
     comment: 'Traduction de mon acte de naissance et de mon diplôme en moins de 48h. Traducteur assermenté très sérieux et documents parfaitement acceptés en mairie. Merci !',
     date: '04 Février 2025',
-    verified: true,
-    approved: true
-  },
-  {
-    id: 't-5',
-    clientName: 'Marc V.',
-    serviceCategory: 'Carte Grise Express',
-    rating: 5,
-    comment: 'Achat d’un véhicule d’occasion le samedi matin, carte grise provisoire obtenue le lundi. Simple, clair et pas de perte de temps sur internet.',
-    date: '20 Janvier 2025',
     verified: true,
     approved: true
   }

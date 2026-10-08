@@ -184,26 +184,10 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button
-                  onClick={() => setActiveServiceSlug('domiciliation-entreprise')}
+                  onClick={() => setActiveServiceSlug('creation-entreprise')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Domiciliation d'entreprise
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setActiveServiceSlug('domiciliation-personnelle')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Domiciliation personnelle
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setActiveServiceSlug('carte-grise-immatriculation')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Carte grise
+                  Création d’entreprise
                 </button>
               </li>
               <li>

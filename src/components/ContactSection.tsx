@@ -276,7 +276,7 @@ export const ContactSection: React.FC = () => {
                   <textarea
                     required
                     rows={3}
-                    placeholder="Précisez votre demande (titre de séjour, nationalité, domiciliation, carte grise...)"
+                    placeholder="Précisez votre demande (titre de séjour, nationalité, traduction...)"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full p-2.5 rounded-lg border border-slate-200 bg-white text-xs text-slate-900 focus:ring-2 focus:ring-red-500"

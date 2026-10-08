@@ -108,6 +108,10 @@ const STORAGE_KEYS = {
   ADMIN_AUTH: 'adn_admin_auth_v1',
 };
 
+
+// Services and related content removed from the site (filtered out of data saved by earlier visits)
+const REMOVED_IDS = ['domiciliation-entreprise', 'domiciliation-personnelle', 'carte-grise', 'droit-etrangers', 'pourquoi-domicilier-entreprise', 'faq-6', 't-3', 't-5'];
+
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Services
   const [services, setServices] = useState<ServiceItem[]>(() => {
@@ -116,8 +120,10 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (!saved) return INITIAL_SERVICES;
       // The foreigners' rights service is merged into the nationality service
       const merged = INITIAL_SERVICES.find(s => s.id === 'nationalite-francaise');
-      return (JSON.parse(saved) as ServiceItem[])
-        .filter(s => s.id !== 'droit-etrangers')
+      const savedServices = JSON.parse(saved) as ServiceItem[];
+      const missing = INITIAL_SERVICES.filter(s => !savedServices.some(x => x.id === s.id));
+      return [...savedServices, ...missing]
+        .filter(s => !REMOVED_IDS.includes(s.id))
         .map(s => (s.id === 'nationalite-francaise' && merged ? { ...s, title: merged.title, shortDescription: merged.shortDescription, fullDescription: merged.fullDescription } : s));
     } catch {
       return INITIAL_SERVICES;
@@ -128,7 +134,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.BLOG);
-      return saved ? JSON.parse(saved) : INITIAL_BLOG_POSTS;
+      return saved ? (JSON.parse(saved) as BlogPost[]).filter(p => !REMOVED_IDS.includes(p.id)) : INITIAL_BLOG_POSTS;
     } catch {
       return INITIAL_BLOG_POSTS;
     }
@@ -138,7 +144,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [faqs, setFaqs] = useState<FaqItem[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.FAQS);
-      return saved ? JSON.parse(saved) : INITIAL_FAQS;
+      return saved ? (JSON.parse(saved) as FaqItem[]).filter(f => !REMOVED_IDS.includes(f.id)) : INITIAL_FAQS;
     } catch {
       return INITIAL_FAQS;
     }
@@ -148,7 +154,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [testimonials, setTestimonials] = useState<Testimonial[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.TESTIMONIALS);
-      return saved ? JSON.parse(saved) : INITIAL_TESTIMONIALS;
+      return saved ? (JSON.parse(saved) as Testimonial[]).filter(t => !REMOVED_IDS.includes(t.id)) : INITIAL_TESTIMONIALS;
     } catch {
       return INITIAL_TESTIMONIALS;
     }

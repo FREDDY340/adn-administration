@@ -29,11 +29,11 @@ export const AboutSection: React.FC = () => {
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Implanté au <strong>119 avenue de Fontainebleau au Kremlin-Bicêtre (94270)</strong>, <strong>ADN Conseils</strong> est né d'une conviction forte : les formalités administratives et juridiques ne doivent plus être un parcours du combattant ou une source d'angoisse pour les particuliers, les ressortissants étrangers et les chefs d’entreprise.
+              Implanté au <strong>119 avenue de Fontainebleau au Kremlin-Bicêtre (94270)</strong>, <strong>ADN Conseils</strong> est né d'une conviction forte : les formalités administratives et juridiques ne doivent plus être un parcours du combattant ou une source d'angoisse pour les particuliers et les ressortissants étrangers.
             </p>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Nous mettons à votre service notre expertise rigoureuse des procédures en Préfecture, des exigences de l'ANTS, des critères de nationalité et de la domiciliation d'entreprise pour vous offrir un accompagnement personnalisé, transparent et efficace.
+              Nous mettons à votre service notre expertise rigoureuse des procédures en Préfecture, des critères de nationalité et de la traduction de documents officiels pour vous offrir un accompagnement personnalisé, transparent et efficace.
             </p>
 
             {/* Core Values 2x2 grid */}

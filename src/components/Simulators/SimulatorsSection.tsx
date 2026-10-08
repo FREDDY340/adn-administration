@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { NationalitySimulator } from './NationalitySimulator';
-import { CarteGriseSimulator } from './CarteGriseSimulator';
 import { TraductionEstimator } from './TraductionEstimator';
 import { Award, Car, Languages, Sparkles } from '../IconHelper';
 
 export const SimulatorsSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'nationality' | 'cartegrise' | 'traduction'>('nationality');
+  const [activeTab, setActiveTab] = useState<'nationality' | 'traduction'>('nationality');
 
   return (
     <section id="simulators-section" className="py-16 sm:py-20 bg-slate-100/70 border-b border-slate-200">
@@ -40,18 +39,6 @@ export const SimulatorsSection: React.FC = () => {
             <span>Test Éligibilité Nationalité</span>
           </button>
 
-          <button
-            id="tab-sim-cartegrise"
-            onClick={() => setActiveTab('cartegrise')}
-            className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
-              activeTab === 'cartegrise'
-                ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/10'
-                : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
-            }`}
-          >
-            <Car className={`w-4 h-4 ${activeTab === 'cartegrise' ? 'text-amber-400' : 'text-amber-600'}`} />
-            <span>Calculateur Carte Grise</span>
-          </button>
 
           <button
             id="tab-sim-traduction"
@@ -70,7 +57,6 @@ export const SimulatorsSection: React.FC = () => {
         {/* Tab Content */}
         <div className="max-w-4xl mx-auto">
           {activeTab === 'nationality' && <NationalitySimulator />}
-          {activeTab === 'cartegrise' && <CarteGriseSimulator />}
           {activeTab === 'traduction' && <TraductionEstimator />}
         </div>
 

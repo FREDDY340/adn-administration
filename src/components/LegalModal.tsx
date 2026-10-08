@@ -137,7 +137,7 @@ export const LegalModal: React.FC = () => {
               <div>
                 <h3 className="font-bold text-slate-900 text-base mb-1">1. Objet des prestations</h3>
                 <p>
-                  ADN Conseils délivre des prestations d'assistance matérielle, de formalisme administratif, de vérification documentaire, de domiciliation d'entreprise et de mise en relation avec des traducteurs experts assermentés.
+                  ADN Conseils délivre des prestations d'assistance matérielle, de formalisme administratif, de vérification documentaire et de traduction de documents par traducteur agréé.
                 </p>
               </div>
 
@@ -151,7 +151,7 @@ export const LegalModal: React.FC = () => {
               <div>
                 <h3 className="font-bold text-slate-900 text-base mb-1">3. Tarifs et Paiement</h3>
                 <p>
-                  Tous nos tarifs font l'objet d'un devis préalable validé par le client avant toute intervention. Les prestations de domiciliation d'entreprise font l'objet d'un contrat commercial d'une durée minimale de 3 mois conformément à la réglementation.
+                  Tous nos tarifs font l'objet d'un devis préalable validé par le client avant toute intervention.
                 </p>
               </div>
             </div>
