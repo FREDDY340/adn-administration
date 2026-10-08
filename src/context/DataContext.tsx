@@ -154,7 +154,8 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [testimonials, setTestimonials] = useState<Testimonial[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.TESTIMONIALS);
-      return saved ? (JSON.parse(saved) as Testimonial[]).filter(t => !REMOVED_IDS.includes(t.id)) : INITIAL_TESTIMONIALS;
+      // Demo testimonials were fictitious: only reviews added later through the admin are kept
+      return saved ? (JSON.parse(saved) as Testimonial[]).filter(t => !/^t-\d+$/.test(t.id)) : INITIAL_TESTIMONIALS;
     } catch {
       return INITIAL_TESTIMONIALS;
     }

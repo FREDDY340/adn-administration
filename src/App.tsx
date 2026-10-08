@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { ServicesGrid } from './components/ServicesGrid';
 import { MethodSection } from './components/MethodSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
 import { DualCtaBanner } from './components/DualCtaBanner';
 import { ContactSection } from './components/ContactSection';
 import { AboutSection } from './components/AboutSection';
@@ -82,7 +81,6 @@ const MainLayout: React.FC = () => {
         <MethodSection />
 
         {/* 4. Ils nous font confiance (3 quote cards with red quotes & gold stars) */}
-        <TestimonialsSection />
 
         {/* 5. Dual CTA / FAQ Banner ("Une question ?" & "Besoin d'un accompagnement ?") */}
         <DualCtaBanner />

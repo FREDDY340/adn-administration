@@ -197,38 +197,7 @@ export const INITIAL_FAQS: FaqItem[] = [
   }
 ];
 
-export const INITIAL_TESTIMONIALS: Testimonial[] = [
-  {
-    id: 't-1',
-    clientName: 'Karim B.',
-    serviceCategory: 'Nationalité Française',
-    rating: 5,
-    comment: 'Un accompagnement exceptionnel pour mon dossier de naturalisation. L’équipe a corrigé les incohérences de mes actes d’état civil et m’a préparé à l’entretien. J’ai reçu mon décret il y a deux semaines !',
-    date: '12 Janvier 2025',
-    verified: true,
-    approved: true
-  },
-  {
-    id: 't-2',
-    clientName: 'Elena M.',
-    serviceCategory: 'Titre de Séjour',
-    rating: 5,
-    comment: 'Très professionnelle et réactive. Mon dossier de renouvellement salarié sur l’ANEF était bloqué depuis des mois. Grâce à leur intervention et la relecture de mes justificatifs, tout a été débloqué rapidement.',
-    date: '28 Décembre 2024',
-    verified: true,
-    approved: true
-  },
-  {
-    id: 't-4',
-    clientName: 'Fatoumata D.',
-    serviceCategory: 'Traduction Assermentée',
-    rating: 5,
-    comment: 'Traduction de mon acte de naissance et de mon diplôme en moins de 48h. Traducteur assermenté très sérieux et documents parfaitement acceptés en mairie. Merci !',
-    date: '04 Février 2025',
-    verified: true,
-    approved: true
-  }
-];
+export const INITIAL_TESTIMONIALS: Testimonial[] = [];
 
 export const INITIAL_CONTACT_REQUESTS: ContactOrQuoteRequest[] = [];
 
