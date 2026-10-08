@@ -110,18 +110,9 @@ export const FaqSection: React.FC = () => {
         <div className="mt-10 p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-sm font-bold text-[#0c2340]">Vous avez une question spécifique sur votre dossier ?</h4>
-            <p className="text-xs text-slate-500">Nos conseillers vous répondent rapidement par WhatsApp ou téléphone.</p>
+            <p className="text-xs text-slate-500">Nos conseillers vous répondent rapidement par téléphone ou par e-mail.</p>
           </div>
           <div className="flex items-center gap-2">
-            <a
-              href={`https://wa.me/${settings.whatsapp.replace(/[^0-9]/g, '')}?text=Bonjour%20ADN%20Conseil,%20j'ai%20une%20question.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>WhatsApp</span>
-            </a>
             <a
               href={`tel:${settings.phone.replace(/\s+/g, '')}`}
               className="px-3.5 py-2 rounded-xl bg-[#0c2340] hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-1.5"

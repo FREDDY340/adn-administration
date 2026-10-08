@@ -13,7 +13,7 @@ export const AdminSettings: React.FC = () => {
   const [city, setCity] = useState(settings.city);
   const [phone, setPhone] = useState(settings.phone);
   const [phoneDisplay, setPhoneDisplay] = useState(settings.phoneDisplay);
-  const [whatsapp, setWhatsapp] = useState(settings.whatsapp);
+  const whatsapp = '';
   const [email, setEmail] = useState(settings.email);
   
   // Alert Banner
@@ -165,15 +165,6 @@ export const AdminSettings: React.FC = () => {
             />
           </div>
 
-          <div className="space-y-1">
-            <label className="font-bold text-slate-700 block">Numéro WhatsApp :</label>
-            <input
-              type="text"
-              value={whatsapp}
-              onChange={(e) => setWhatsapp(e.target.value)}
-              className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 font-mono text-slate-900"
-            />
-          </div>
         </div>
 
         <div className="space-y-1 text-xs sm:text-sm">

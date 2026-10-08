@@ -124,18 +124,6 @@ const MainLayout: React.FC = () => {
           </button>
         )}
 
-        {/* Floating WhatsApp Bubble */}
-        <a
-          id="floating-whatsapp-btn"
-          href={`https://wa.me/${settings.whatsapp.replace(/[^0-9]/g, '')}?text=Bonjour%20ADN%20Conseils,%20je%20souhaite%20un%20renseignement%20sur%20mes%20démarches.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 border-2 border-white/20"
-          title="Échanger sur WhatsApp"
-        >
-          <MessageSquare className="w-5 h-5 text-white" />
-          <span className="text-xs font-black pr-1 hidden sm:inline">WhatsApp Express</span>
-        </a>
 
       </aside>
 

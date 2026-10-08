@@ -38,7 +38,7 @@ export const QuoteModal: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [preferredContact, setPreferredContact] = useState<'whatsapp' | 'phone' | 'email'>('whatsapp');
+  const [preferredContact, setPreferredContact] = useState<'whatsapp' | 'phone' | 'email'>('phone');
   const [message, setMessage] = useState('');
   const [urgency, setUrgency] = useState<'normal' | 'urgent'>('normal');
 
@@ -321,7 +321,6 @@ export const QuoteModal: React.FC = () => {
                     onChange={(e) => setPreferredContact(e.target.value as any)}
                     className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-400 text-xs font-semibold text-slate-900"
                   >
-                    <option value="whatsapp">WhatsApp (Très rapide)</option>
                     <option value="phone">Téléphone direct</option>
                     <option value="email">Par E-mail</option>
                   </select>

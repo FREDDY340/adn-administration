@@ -117,7 +117,7 @@ export const LegalModal: React.FC = () => {
                   <li>Étude de faisabilité et diagnostic de votre dossier administratif</li>
                   <li>Établissement des devis personnalisés</li>
                   <li>Organisation et suivi de vos rendez-vous</li>
-                  <li>Prise de contact par téléphone, e-mail ou WhatsApp selon votre choix</li>
+                  <li>Prise de contact par téléphone ou par e-mail selon votre choix</li>
                 </ul>
               </div>
 

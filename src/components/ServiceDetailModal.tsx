@@ -228,14 +228,11 @@ export const ServiceDetailModal: React.FC = () => {
         {/* Modal Footer Actions */}
         <div className="bg-slate-100 p-4 sm:p-5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0">
           <a
-            id="service-modal-whatsapp-btn"
-            href={`https://wa.me/${settings.whatsapp.replace(/[^0-9]/g, '')}?text=Bonjour%20ADN%20Conseil,%20je%20souhaite%20des%20informations%20sur%20le%20service%20:%20${encodeURIComponent(service.title)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5"
+            href={`tel:${settings.phone.replace(/\s+/g, '')}`}
+            className="text-xs font-semibold text-[#0c2340] hover:text-slate-700 flex items-center gap-1.5"
           >
-            <MessageSquare className="w-4 h-4 text-emerald-600" />
-            <span>Poser une question sur WhatsApp</span>
+            <MessageSquare className="w-4 h-4 text-[#0c2340]" />
+            <span>Poser une question : {settings.phoneDisplay}</span>
           </a>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">

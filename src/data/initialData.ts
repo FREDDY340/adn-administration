@@ -95,7 +95,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     highlights: [
       'Adresse stratégique à 2 min du métro M7 Kremlin-Bicêtre',
-      'Notification en temps réel par SMS / WhatsApp / Email',
+      'Notification en temps réel par SMS / Email',
       'Scan sécurisé de votre courrier officiel',
       'Contrat conforme et reconnu par le Greffe du Tribunal'
     ],
@@ -488,10 +488,10 @@ export const INITIAL_SITE_SETTINGS: SiteSettings = {
   address: '119 avenue de Fontainebleau',
   postalCode: '94270',
   city: 'Le Kremlin-Bicêtre',
-  phone: '+33 7 58 39 71 05',
-  phoneDisplay: '+33 7 58 39 71 05',
-  whatsapp: '+33758397105',
-  email: 'contact@adn-conseils.fr',
+  phone: '+33 9 87 55 54 52',
+  phoneDisplay: '09 87 55 54 52',
+  whatsapp: '',
+  email: 'contact@adn-administration.fr',
   openingHours: [
     { day: 'Lundi', hours: '09h00 - 12h30 & 14h00 - 18h30', isOpen: true },
     { day: 'Mardi', hours: '09h00 - 12h30 & 14h00 - 18h30', isOpen: true },

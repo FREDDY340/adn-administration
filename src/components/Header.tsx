@@ -73,15 +73,6 @@ export const Header: React.FC = () => {
               <Clock className="w-3.5 h-3.5 text-blue-400" />
               <span>Lun - Ven : 09h-18h | Sam : 09h-13h</span>
             </span>
-            <a
-              href={`https://wa.me/${settings.whatsapp.replace(/[^0-9]/g, '')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 transition-colors"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>WhatsApp Direct</span>
-            </a>
           </div>
 
           <div className="flex items-center gap-3">

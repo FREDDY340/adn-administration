@@ -175,17 +175,15 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const saved = localStorage.getItem(STORAGE_KEYS.SETTINGS);
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Ensure updated contact details if previously set to dummy placeholder
-        if (parsed.phone === '01 46 70 80 90' || !parsed.phone || parsed.whatsapp === '+33646708090') {
-          return {
-            ...INITIAL_SITE_SETTINGS,
-            ...parsed,
-            phone: '+33 7 58 39 71 05',
-            phoneDisplay: '+33 7 58 39 71 05',
-            whatsapp: '+33758397105',
-          };
-        }
-        return { ...INITIAL_SITE_SETTINGS, ...parsed };
+        // Contact details always come from the current site settings (old saved values are overridden)
+        return {
+          ...INITIAL_SITE_SETTINGS,
+          ...parsed,
+          phone: INITIAL_SITE_SETTINGS.phone,
+          phoneDisplay: INITIAL_SITE_SETTINGS.phoneDisplay,
+          whatsapp: '',
+          email: INITIAL_SITE_SETTINGS.email,
+        };
       }
       return INITIAL_SITE_SETTINGS;
     } catch {
